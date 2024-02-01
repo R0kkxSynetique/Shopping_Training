@@ -38,7 +38,8 @@ module.exports = class CartItem {
     }
 
     set quantity(value) {
-        throw new Error();
+        this.#validateQuantity(value);
+        this._quantity = value;
     }
 
     get price() {
@@ -46,7 +47,8 @@ module.exports = class CartItem {
     }
 
     set price(value) {
-        throw new Error();
+        this.#validatePrice(value);
+        this._price = value;
     }
 
     get total() {
