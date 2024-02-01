@@ -8,6 +8,7 @@ module.exports = class Cart {
 	}
 
     count (distinct = false) {
+        this.#checkEmptyCart();
         let totalItems = 0;
         if (distinct) {
             return this._items.length;
