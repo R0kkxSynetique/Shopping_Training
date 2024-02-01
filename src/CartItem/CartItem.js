@@ -18,7 +18,7 @@ module.exports = class CartItem {
         this.#validateArticleId(articleId);
         this.#validateQuantity(quantity);
         this.#validatePrice(price);
-        this.price = price;
+        
         this._articleId = articleId;
         this._name = name;
         this._quantity = quantity;
