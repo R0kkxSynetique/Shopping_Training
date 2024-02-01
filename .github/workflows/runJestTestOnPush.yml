@@ -1,6 +1,7 @@
 name: Run jest test on push
 
-on: [push]
+on: 
+  push:
   workflow_dispatch:
 
 jobs:
