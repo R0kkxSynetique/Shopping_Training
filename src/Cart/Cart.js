@@ -1,4 +1,5 @@
 const EmptyCartException = require("./EmptyCartException");
+const UpdateCartException = require("./UpdateCartException");
 
 module.exports = class Cart {
 	_items = [];
@@ -26,6 +27,7 @@ module.exports = class Cart {
         {
             this._items = [];
         }
+        this.#checkItemsNotNull(items);
 		items.forEach((item) => {
 			this._items.push(item);
 		});
@@ -50,4 +52,12 @@ module.exports = class Cart {
 			throw new EmptyCartException();
 		}
 	}
+
+    #checkItemsNotNull(items)
+    {
+        if (items == null)
+        {
+            throw new UpdateCartException();
+        }
+    }
 };
