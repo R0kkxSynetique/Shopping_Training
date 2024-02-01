@@ -7,17 +7,29 @@ module.exports = class Cart {
 		this._items = items;
 	}
 
-    count (distinct = false) {
-        this.#checkEmptyCart();
-        let totalItems = 0;
-        if (distinct) {
-            return this._items.length;
+	count(distinct = false) {
+		this.#checkEmptyCart();
+		let totalItems = 0;
+		if (distinct) {
+			return this._items.length;
+		}
+		this._items.forEach((item) => {
+			totalItems += item.quantity;
+		});
+		return totalItems;
+	}
+
+	add(items) {
+        try {
+            this.#checkEmptyCart();
+        }catch
+        {
+            this._items = [];
         }
-        this._items.forEach(item => {
-            totalItems += item.quantity;
-        });
-        return totalItems;
-    }
+		items.forEach((item) => {
+			this._items.push(item);
+		});
+	}
 
 	get items() {
 		this.#checkEmptyCart();
@@ -25,7 +37,7 @@ module.exports = class Cart {
 	}
 
 	get total() {
-        this.#checkEmptyCart();
+		this.#checkEmptyCart();
 		let total = 0;
 		this._items.forEach((item) => {
 			total += item.total;
