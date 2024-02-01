@@ -7,10 +7,10 @@ const InvalidPriceException = require("./InvalidPriceException.js");
 module.exports = class CartItem {
 
     //region private attributes
-    articleId;
-    name;
-    quantity;
-    price;
+    _articleId;
+    _name;
+    _quantity;
+    _price;
     //endregion private attributes
 
     //region public methods
@@ -19,6 +19,10 @@ module.exports = class CartItem {
         this.name = name;
         this.quantity = quantity;
         this.price = price;
+        this._articleId = articleId;
+        this._name = name;
+        this._quantity = quantity;
+        this._price = price;
     }
 
     get articleId() {
