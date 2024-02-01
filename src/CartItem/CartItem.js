@@ -15,14 +15,10 @@ module.exports = class CartItem {
 
     //region public methods
     constructor(articleId, name, quantity, price) {
-        this.#validateArticleId(articleId);
-        this.#validateQuantity(quantity);
-        this.#validatePrice(price);
-        
-        this._articleId = articleId;
-        this._name = name;
-        this._quantity = quantity;
-        this._price = price;
+        this.#articleId = articleId;
+        this.#name = name;
+        this.quantity = quantity;
+        this.price = price;
     }
 
     get articleId() {
@@ -57,6 +53,16 @@ module.exports = class CartItem {
     //endregion public methods
 
     //region private methods
+
+    set #articleId(value) {
+        this.#validateArticleId(value);
+        this._articleId = value;
+    }
+
+    set #name(value) {
+        this._name = value;
+    }
+
     #validateArticleId(articleId) {
         if (articleId < 1) {
             throw new InvalidArticleIdException();
