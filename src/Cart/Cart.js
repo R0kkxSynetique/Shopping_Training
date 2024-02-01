@@ -7,8 +7,11 @@ module.exports = class Cart {
 		this._items = items;
 	}
 
-    count () {
+    count (distinct = false) {
         let totalItems = 0;
+        if (distinct) {
+            return this._items.length;
+        }
         this._items.forEach(item => {
             totalItems += item.quantity;
         });
