@@ -7,6 +7,14 @@ module.exports = class Cart {
 		this._items = items;
 	}
 
+    count () {
+        let totalItems = 0;
+        this._items.forEach(item => {
+            totalItems += item.quantity;
+        });
+        return totalItems;
+    }
+
 	get items() {
 		this.#checkEmptyCart();
 		return this._items;
