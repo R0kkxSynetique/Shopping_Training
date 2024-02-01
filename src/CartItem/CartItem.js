@@ -26,15 +26,15 @@ module.exports = class CartItem {
     }
 
     get articleId() {
-        throw new Error();
+        return this._articleId;
     }
 
     get name() {
-        throw new Error();
+        return this._name;
     }
 
     get quantity() {
-        throw new Error();
+        return this._quantity;
     }
 
     set quantity(value) {
@@ -42,7 +42,7 @@ module.exports = class CartItem {
     }
 
     get price() {
-        throw new Error();
+        return this._price;
     }
 
     set price(value) {
@@ -50,7 +50,7 @@ module.exports = class CartItem {
     }
 
     get total() {
-        return this.price * this.quantity;
+        return this._price * this.quantity;
     }
     //endregion public methods
 
