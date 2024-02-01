@@ -13,6 +13,7 @@ module.exports = class Cart {
 	}
 
 	get total() {
+        this.#checkEmptyCart();
 		let total = 0;
 		this._items.forEach((item) => {
 			total += item.total;
